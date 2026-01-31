@@ -195,6 +195,10 @@ void core_onWindowSizeChanged(unsigned width, unsigned height)
   if (!g_state.pointerQueue)
     return;
 
+  // ensure the requested VM window size is scaled properly
+  width = width * g_state.windowScale;
+  height = height * g_state.windowScale;
+
   if (g_state.srcSize.x == width && g_state.srcSize.y == height)
     return;
 
